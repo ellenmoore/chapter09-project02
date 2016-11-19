@@ -1,10 +1,8 @@
 <?php
 
 include 'travel-data.php';   
-
-
+$id = $_GET['id'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,22 +45,22 @@ include 'travel-data.php';
          <ol class="breadcrumb">
            <li><a href="#">Home</a></li>
            <li><a href="Chapter09-project02.php">Favorites</a></li>
-           <li class="active">title here</li>
+           <li class="active"><?php echo $images[$id]['title']?></li>
          </ol> 
 
-         <h1><?php echo $image['title']; ?></h1>
+         <h1><?php echo $images[$id]['title']?></h1>
          <div class="row">
             <div class="col-md-8">
                        
-               image here
-               
+               <?php echo '<img src="images/travel/medium/' . $images[$id]['path'] . '">'?>
+   
             </div>
             <div class="col-md-4">
                <div class="panel panel-primary">
                   <div class="panel-body">
-                      <p>By <a href="#">user here</a></p>
-                  <p>Taken in <a href="#">country here</a></p>
-                  <p>description here</p>
+                      <p>By <a href="#"><?php echo $images[$id]['user']?></a></p>
+                  <p>Taken in <a href="#"><?php echo $images[$id]['country']?></a></p>
+                  <p><?php echo $images[$id]['description']?></p>
                    </div>
                </div>
             </div>
