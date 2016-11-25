@@ -8,8 +8,8 @@ include 'travel-data.php';
 function showImageLink($picture) {
 	//echo '<img src="/images/travel/square/' . $picture . '" />';
 	echo '<div>';
-	echo  '<a class="col-md-3" href="travel-image.php?id=7">';
-    echo    '<img class="media-object" src="images/travel/square/' . $picture . '" alt="...">';
+	echo  '<a class="col-md-3" href="travel-image.php?id=' . $picture["id"] . '">';
+    echo    '<img class="media-object" src="images/travel/square/' . $picture["path"] . '" alt="...">';
     echo  '</a>';
 	echo '</div>';
 } 
@@ -78,7 +78,7 @@ asort($countries);
 				//iterate through the image array then call the function to display the image
 				
 				foreach ($images as $key => $pic) {
-					showImageLink($pic["path"]);
+					showImageLink($pic);
 					}
 			  ?>
             </div>
