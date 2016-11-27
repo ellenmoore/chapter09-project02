@@ -1,9 +1,22 @@
 <?php
 
-include 'travel-data.php';   
+include 'travel-data.php';
+
+
+
+//function to display image
+function showImageLink($picture) {
+	//echo '<img src="/images/travel/square/' . $picture . '" />';
+	echo '<div>';
+	echo  '<a class="col-md-3" href="travel-image.php?id=' . $picture["id"] . '">';
+    echo    '<img class="media-object" src="images/travel/square/' . $picture["path"] . '" alt="...">';
+    echo  '</a>';
+	echo '</div>';
+} 
 
 asort($continents);
 asort($countries);
+
 
 
 ?>
@@ -38,7 +51,9 @@ asort($countries);
 
 <body>
 
-<?php include 'travel-header.php'; ?>
+<?php include 'travel-header.php'; 
+
+?>
    
 <div class="container">  <!-- start main content container -->
    <div class="row">  <!-- start main content row -->
@@ -59,8 +74,13 @@ asort($countries);
          <!-- start post summaries -->
          <div class="well">
             <div class="row">
-                replace this with loop outputting col-md-3 div containing photo
-
+              <?php
+				//iterate through the image array then call the function to display the image
+				
+				foreach ($images as $key => $pic) {
+					showImageLink($pic);
+					}
+			  ?>
             </div>
          </div>
 
